@@ -19,6 +19,12 @@ Github, being as awesome as they are, fully support CORS requests! No hacks requ
 
 ## Assignment!!!
 
+1. Display github username - login
+2. link to github user page - html_url
+3. display profile image - avatar_url
+4. display some public info - location
+
+5. search page
 Read through the Github API Developer documentation. Using this documentation you need to construct an Ajax application page that will display one of your Github user's names (and a link to the user's Github page), profile images and some public information you've shared on Github.
 
 Once you've got that working, modify the application to be a search page that will search all users and display the information detailed above for the searched user (or display a message when the user is not found). 
