@@ -7,7 +7,7 @@ var ourData = null;
 
 $(document).ready(function(){
 
-    $('.searchBtn').on('click', function() {
+    $('.octocat').on('click', function() {
         query = $('.searchField').val();
 
         $.ajax({
@@ -22,7 +22,7 @@ $(document).ready(function(){
                 userPage = data.html_url;
                 userDescription = data.location;
                 userImage = data.avatar_url;
-
+                $('.info').addClass('user');
                 $('.username').text(username);
                 $('.userLinkUrl').attr('src', userPage);
                 $('.userLinkText').text(userPage);
@@ -41,7 +41,24 @@ $(document).ready(function(){
             crossDomain: true,
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                var repo;
+                var name;
+                var description;
+                var url;
+                var cell;
+                $('.repos').append('<div class="row"></div>');
+                for (var i=0; i < data.length; i++) {
+                    repo = data[i];
+                    name = '<p class="lead text-center">' + repo.name + '</p>';
+                    description = '<p>' + repo.description + '</p>';
+                    url = '<p><a class="url" href="' + repo.url + '">' + repo.url + '</a></p>';
+                    cell = '<div class="col-md-3 col-xs-12">' + name  + description + url + '</div>';
+                    if ((i % 4) == 0) {
+                        $(".repos").append('<div class="row"></div>');
+                    }
+                    $('.row').last().append(cell);
+
+                }
 
                 //html_url & name
 
